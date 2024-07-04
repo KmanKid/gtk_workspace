@@ -39,4 +39,5 @@ $currentdir = $currentdir -replace '\\','/'
 replaceStringInFile -filePath "./.vscode/c_cpp_properties.json" -oldString "!installpath!" -newString "$install_path/"
 replaceStringInFile -filePath "./.vscode/tasks.json" -oldString "!installpath!" -newString "$install_path/"
 replaceStringInFile -filePath "./.vscode/runner.ps1" -oldString "!installpath!" -newString "$install_path/"
+replaceStringInFile -filePath "./.vscode/launch.json" -oldString "!installpath!" -newString "$install_path/"
 replaceStringInFile -filePath "./.vscode/tasks.json" -oldString "!currentdir!" -newString "$currentdir"
