@@ -2,10 +2,6 @@
 
 This PowerShell script installs MSYS2 and its dependencies, configures the environment for building GTK applications, and sets up Visual Studio Code for development.
 
-## Prerequisites
-
-Ensure the script is run as an Administrator.
-
 ## Script Overview
 
 - Administrator Check: Confirms the script is running with Administrator rights.
