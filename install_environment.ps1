@@ -49,4 +49,5 @@ if (Test-Path $installation_log_path) {
     Remove-Item -Path $installation_log_path
 }
 
+code --install-extension ms-vscode.cpptools
 code .
