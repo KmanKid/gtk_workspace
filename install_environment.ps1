@@ -36,10 +36,11 @@ $bashpath = "$install_path/usr/bin/bash.exe"
 
 $currentdir = Get-Location
 $currentdir = $currentdir -replace '\\','/'
-replaceStringInFile -filePath "./.vscode_base/c_cpp_properties.json" -oldString "!installpath!" -newString "$install_path/"
-replaceStringInFile -filePath "./.vscode_base/tasks.json" -oldString "!installpath!" -newString "$install_path/"
-replaceStringInFile -filePath "./.vscode_base/runner.ps1" -oldString "!installpath!" -newString "$install_path/"
-replaceStringInFile -filePath "./.vscode_base/launch.json" -oldString "!installpath!" -newString "$install_path/"
-replaceStringInFile -filePath "./.vscode_base/tasks.json" -oldString "!currentdir!" -newString "$currentdir"
 
 Copy-Item ".\.vscode_base" -Destination ".\.vscode" -Recurse
+
+replaceStringInFile -filePath "./.vscode/c_cpp_properties.json" -oldString "!installpath!" -newString "$install_path/"
+replaceStringInFile -filePath "./.vscode/tasks.json" -oldString "!installpath!" -newString "$install_path/"
+replaceStringInFile -filePath "./.vscode/runner.ps1" -oldString "!installpath!" -newString "$install_path/"
+replaceStringInFile -filePath "./.vscode/launch.json" -oldString "!installpath!" -newString "$install_path/"
+replaceStringInFile -filePath "./.vscode/tasks.json" -oldString "!currentdir!" -newString "$currentdir"
