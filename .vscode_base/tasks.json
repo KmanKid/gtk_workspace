@@ -4,10 +4,10 @@
     {
       "label": "Build GTK Application",
       "type": "shell",
-      "command": "!installpath!usr/bin/bash.exe",
+      "command": "${workspaceFolder}\\.vscode\\runner.ps1",
       "args": [
-        "-c",
-        "g++ -fdiagnostics-color=always -g $(pkg-config --cflags gtk4) !currentdir!/main.cpp -o !currentdir!/main.exe $(pkg-config --libs gtk4)"
+        "${fileDirname}\\${fileBasename}",
+        "${fileDirname}\\${fileBasenameNoExtension}.exe"
       ],
       "group": "build",
       "problemMatcher": ["$gcc"],
