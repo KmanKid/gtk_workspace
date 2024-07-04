@@ -35,6 +35,7 @@ $bashpath = "$install_path/usr/bin/bash.exe"
 & $bashpath --login -i -c 'pacman -S mingw-w64-x86_64-toolchain base-devel --noconfirm'
 
 $currentdir = Get-Location
+$currentdir = $currentdir -replace '\\','/'
 replaceStringInFile -filePath "./.vscode_base/c_cpp_properties.json" -oldString "!installpath!" -newString "$install_path/"
 replaceStringInFile -filePath "./.vscode_base/tasks.json" -oldString "!installpath!" -newString "$install_path/"
 replaceStringInFile -filePath "./.vscode_base/tasks.json" -oldString "!currentdir!" -newString "$currentdir/"
