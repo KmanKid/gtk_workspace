@@ -1,16 +1,41 @@
-## Manual:
+# MSYS2 Installation and Configuration Script
 
-1. Clone repo
-2. You can checkt the the execution policy via `Get-ExecutionPolicy` and set it to unrestricted via `Set-ExecutionPolicy Unrestricted` -> Reset it to whatever it was or `Set-ExecutionPolicy Restricted`
-3. Read \*.ps1! -> change paths if needed
-4. Execute \*.ps1 as admin from the repo base
-5. After script you have a tasks.json and c_cpp_properties.json in your .vscode folder, the .vscode_base folder is gone
-6. Unfortunately someone has to implement dynamic reference to the file that needs to be compiled, default is "main.cpp" -> Dont rename
-7. Change bot paths in tasks.json line 10 to the file you want to compile e.g C:/gtk_install/main.cpp
-8. Run Task via command pallete `(Shift+Ctrl+P or Type '>' in Search)` -> `Tasks: Run Task` -> `Build GTK Application`
-9. If you run into errors check the path in the tasks.json, it should point to the exe you want to compile
-10. You should have an .exe now
+This PowerShell script installs MSYS2 and its dependencies, configures the environment for building GTK applications, and sets up Visual Studio Code for development.
 
-#ToDo:
-- Automatic C++ Extension Installation
-- launch.json for Debugging and running
+## Prerequisites
+
+Ensure the script is run as an Administrator.
+
+## Script Overview
+
+- Administrator Check: Confirms the script is running with Administrator rights.
+- Function Definition: Defines a function to replace strings in files.
+- Download and Install MSYS2:
+- Downloads the MSYS2 installer.
+- Installs MSYS2 to C:/msys64.
+- Removes the installer after installation.
+- - Installs GTK4 and development tools using pacman.
+- Directory Configuration:
+- - Converts the current directory path to a Unix-style path.
+- - Copies the base VS Code configuration to the current directory.
+- - Updates paths in the VS Code configuration files with the installation and current directory paths.
+- Clean Up: Removes any existing installation log.
+- Open VS Code: Launches Visual Studio Code.
+
+## Usage
+
+Run the script in PowerShell as an Administrator at the base of the repo.
+
+**If you can not execute the script you should set the Execution Policy to RemoteSigned.**
+
+Be careful and consult [Execution Policies](https://learn.microsoft.com/en-US/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7.4#powershell-execution-policies)!
+
+This is also needed for the proxy script that builds the .exe!
+
+> `Set-ExecutionPolicy RemoteSigned`
+
+You can set it to Default or any other value by running:
+
+> `Set-ExecutionPolicy Default`
+
+You should now run the main.cpp file via the playbutton (select "Build and Run GTK Application")
