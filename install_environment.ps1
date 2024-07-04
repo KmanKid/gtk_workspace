@@ -38,6 +38,6 @@ $currentdir = Get-Location
 $currentdir = $currentdir -replace '\\','/'
 replaceStringInFile -filePath "./.vscode_base/c_cpp_properties.json" -oldString "!installpath!" -newString "$install_path/"
 replaceStringInFile -filePath "./.vscode_base/tasks.json" -oldString "!installpath!" -newString "$install_path/"
-replaceStringInFile -filePath "./.vscode_base/tasks.json" -oldString "!currentdir!" -newString "$currentdir/"
+replaceStringInFile -filePath "./.vscode_base/tasks.json" -oldString "!currentdir!" -newString "$currentdir"
 
 Rename-Item -Path "./.vscode_base" -NewName "./.vscode"
