@@ -10,3 +10,7 @@
 8. Run Task via command pallete `(Shift+Ctrl+P or Type '>' in Search)` -> `Tasks: Run Task` -> `Build GTK Application`
 9. If you run into errors check the path in the tasks.json, it should point to the exe you want to compile
 10. You should have an .exe now
+
+#ToDo:
+- Automatic C++ Extension Installation
+- launch.json for Debugging and running
