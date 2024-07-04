@@ -42,4 +42,4 @@ replaceStringInFile -filePath "./.vscode_base/runner.ps1" -oldString "!installpa
 replaceStringInFile -filePath "./.vscode_base/launch.json" -oldString "!installpath!" -newString "$install_path/"
 replaceStringInFile -filePath "./.vscode_base/tasks.json" -oldString "!currentdir!" -newString "$currentdir"
 
-Copy-Item -filePath ".\.vscode_base" -Destination ".\.vscode" -Recurse
+Copy-Item ".\.vscode_base" -Destination ".\.vscode" -Recurse
