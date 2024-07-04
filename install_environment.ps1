@@ -1,7 +1,6 @@
 
 # Ensure the script is running as Administrator
-if (-not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator"))
-{
+if (-not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) {
     Write-Warning "You need to have Administrator rights to run this script. Please re-run this script as an Administrator."
     exit
 }
@@ -35,7 +34,7 @@ $bashpath = "$install_path/usr/bin/bash.exe"
 & $bashpath --login -i -c 'pacman -S mingw-w64-x86_64-toolchain base-devel --noconfirm'
 
 $currentdir = Get-Location
-$currentdir = $currentdir -replace '\\','/'
+$currentdir = $currentdir -replace '\\', '/'
 
 Copy-Item ".\.vscode_base" -Destination ".\.vscode" -Recurse
 
@@ -45,6 +44,9 @@ replaceStringInFile -filePath "./.vscode/runner.ps1" -oldString "!installpath!" 
 replaceStringInFile -filePath "./.vscode/launch.json" -oldString "!installpath!" -newString "$install_path/"
 replaceStringInFile -filePath "./.vscode/tasks.json" -oldString "!currentdir!" -newString "$currentdir"
 
-Remove-Item -Path "./InstallationLog.txt"
+$installation_log_path = "./InstallationLog.txt"
+if (Test-Path $installation_log_path) {
+    Remove-Item -Path $installation_log_path
+}
 
 code .
