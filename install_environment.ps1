@@ -34,6 +34,9 @@ $bashpath = "$install_path/usr/bin/bash.exe"
 #pacman -S --needed base-devel mingw-w64-ucrt-x86_64-toolchain
 & $bashpath --login -i -c 'pacman -S mingw-w64-x86_64-toolchain base-devel --noconfirm'
 
+$currentdir = Get-Location
 replaceStringInFile -filePath "./.vscode_base/c_cpp_properties.json" -oldString "!installpath!" -newString "$install_path/"
 replaceStringInFile -filePath "./.vscode_base/tasks.json" -oldString "!installpath!" -newString "$install_path/"
+replaceStringInFile -filePath "./.vscode_base/tasks.json" -oldString "!currentdir!" -newString "$currentdir/"
+
 Rename-Item -Path "./.vscode_base" -NewName "./.vscode"

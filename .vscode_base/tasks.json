@@ -7,7 +7,7 @@
       "command": "!installpath!usr/bin/bash.exe",
       "args": [
         "-c",
-        "g++ -fdiagnostics-color=always -g $(pkg-config --cflags gtk4) C:/gtk_install/main.cpp -o C:/gtk_install/main.exe $(pkg-config --libs gtk4)"
+        "g++ -fdiagnostics-color=always -g $(pkg-config --cflags gtk4) !currentdir!/main.cpp -o !currentdir!/main.exe $(pkg-config --libs gtk4)"
       ],
       "group": "build",
       "problemMatcher": ["$gcc"],
