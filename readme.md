@@ -30,8 +30,8 @@ This is also needed for the proxy script that builds the .exe!
 
 > `Set-ExecutionPolicy RemoteSigned`
 
+You should now be able to run the main.cpp or the main.c file via the playbutton (select "Build and Run GTK Application")
+
 You can set it to Default or any other value by running:
 
 > `Set-ExecutionPolicy Default`
-
-You should now be able to run the main.cpp or the main.c file via the playbutton (select "Build and Run GTK Application")
